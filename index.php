@@ -9,12 +9,21 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css/css/nes.min.css" rel="stylesheet" />
+
     <!-- Custom styles for this template -->
     <link href="sticky-footer.css" rel="stylesheet">
 
     <title>Hello, world!</title>
 </head>
 <body>
+
+    <style>
+        td {
+            vertical-align: middle !important;
+        }
+    </style>
 
     <!-- Begin page content -->
     <main role="main" class="container">
@@ -25,7 +34,7 @@
 
                 <input type="text" class="form-control mb-2 mr-sm-2" id="who" placeholder="Quién">
 
-                <button type="button" class="btn btn-primary mb-2" onclick="buttonAddNumber()">Añadir</button>
+                <button type="button" class="nes-btn is-primary mb-2" onclick="buttonAddNumber()">Añadir</button>
             </form>
         </div>
 
@@ -54,8 +63,7 @@
 
     <footer class="footer">
         <div class="container">
-            <button id="button_status" class="btn btn-info" data-status="0">Comenzar</button>
-            <span class="text-muted">Place sticky footer content here.</span>
+            <button id="button_status" class="nes-btn" data-status="0">Comenzar</button>
         </div>
     </footer>
 

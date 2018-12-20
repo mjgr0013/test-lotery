@@ -8,7 +8,8 @@ var timeout         = null;
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
 buttonStatus.onclick = function() {
-
+    checkAllNumbers();
+    buttonStatus.textContent = 'Comenzado';
 };
 
 function buttonAddNumber() {
@@ -36,7 +37,7 @@ function buildTrForTable(number, who)
     var actionTd = document.createElement("td");
     var buttonDelete = document.createElement("button");
     buttonDelete.textContent = 'X';
-    buttonDelete.classList.add('btn', 'btn-sm', 'btn-danger');
+    buttonDelete.classList.add('nes-btn', 'is-error');
     buttonDelete.onclick = function() { deleteNumber(number); return false; };
 
     actionTd.appendChild(buttonDelete);
@@ -125,9 +126,9 @@ const checkAllNumbers = async () => {
 
     for (let row of numbersTable.rows) {
         count++;
-        var number = row.cells.item(0).textContent;
+        var number = row.cells.item(1).textContent;
 
-        if (row.cells.item(2).textContent !== "") {
+        if (row.cells.item(3).textContent !== "") {
             continue;
         }
 
