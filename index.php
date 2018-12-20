@@ -20,6 +20,9 @@
 <body>
 
     <style>
+        body{
+            margin-top: 20px;
+        }
         td {
             vertical-align: middle !important;
         }
@@ -35,6 +38,7 @@
                 <input type="text" class="form-control mb-2 mr-sm-2" id="who" placeholder="Quién">
 
                 <button type="button" class="nes-btn is-primary mb-2" onclick="buttonAddNumber()">Añadir</button>
+                <button id="button_status" type="button" class="nes-btn is-success mb-2" onclick="buttonAddNumber()">Comenzar</button>
             </form>
         </div>
 
@@ -56,16 +60,6 @@
         </div>
     </main>
 
-
-
-
-
-
-    <footer class="footer">
-        <div class="container">
-            <button id="button_status" class="nes-btn" data-status="0">Comenzar</button>
-        </div>
-    </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

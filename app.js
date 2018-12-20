@@ -9,7 +9,7 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 
 buttonStatus.onclick = function() {
     checkAllNumbers();
-    buttonStatus.textContent = 'Comenzado';
+    buttonStatus.remove();
 };
 
 function buttonAddNumber() {
