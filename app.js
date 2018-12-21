@@ -157,9 +157,9 @@ function checkNumber(number)
             // handle success
             var data = eval(response.data);
 
-            (Math.floor(Math.random() * 2) === 0) ?
-                data = {'numero':number,'premio':0,'timestamp':1545131466,'status':0,'error':0} :
-                data = {'numero':number,'premio':'PREMIO_AL_DECIMO','timestamp':1545131466,'status':0,'error':0};
+            // (Math.floor(Math.random() * 2) === 0) ?
+            //     data = {'numero':number,'premio':0,'timestamp':1545131466,'status':0,'error':0} :
+            //     data = {'numero':number,'premio':'PREMIO_AL_DECIMO','timestamp':1545131466,'status':0,'error':0};
 
             if (data.premio !== 0) {
                 row.classList.add("table-success");
