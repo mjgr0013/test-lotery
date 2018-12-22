@@ -15,7 +15,7 @@
     <!-- Custom styles for this template -->
     <link href="sticky-footer.css" rel="stylesheet">
 
-    <title>Hello, world!</title>
+    <title>Lotería !!</title>
 </head>
 <body>
 

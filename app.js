@@ -15,7 +15,7 @@ buttonStatus.onclick = function() {
 function buttonAddNumber() {
     addNumber(numberInput.value, whoInput.value);
     numberInput.value = "";
-    whoInput.value = "";
+    // whoInput.value = "";
 }
 
 function init()
@@ -146,7 +146,7 @@ function checkNumber(number)
 
     var config = {
         params: {
-            number : number
+            number : number.toString()
         }
     };
 
@@ -157,11 +157,13 @@ function checkNumber(number)
             // handle success
             var data = eval(response.data);
 
-            // (Math.floor(Math.random() * 2) === 0) ?
-            //     data = {'numero':number,'premio':0,'timestamp':1545131466,'status':0,'error':0} :
-            //     data = {'numero':number,'premio':'PREMIO_AL_DECIMO','timestamp':1545131466,'status':0,'error':0};
+            console.log(data);
 
-            if (data.premio !== 0) {
+            // (Math.floor(Math.random() * 2) === 0) ?
+            //      data = {'numero':number,'premio':0,'timestamp':1545131466,'status':0,'error':0} :
+            //      data = {'numero':number,'premio':'PREMIO_AL_DECIMO','timestamp':1545131466,'status':0,'error':0};
+
+            if (data.error === 0 && data.premio !== 0) {
                 row.classList.add("table-success");
                 row.cells.item(row.cells.length - 1).textContent = data.premio;
             }
@@ -188,3 +190,80 @@ Object.filter = function( obj, predicate) {
 
     return result;
 };
+
+
+function getResumen()
+{
+    var config = {
+        params: {
+            number : 'resumen'
+        }
+    };
+
+    var premiosLocal = {
+        'numero1' : 'gordo del sorteo',
+        'numero2' : 'segundo premio',
+        'numero3' : 'tercer premio',
+        'numero4' : 'primer cuarto del sorteo',
+        'numero5' : 'segundo cuarto del sorteo',
+        'numero6' : 'primer quinto del sorteo',
+        'numero7' : 'segundo quinto del sorteo',
+        'numero8' : 'tercer quinto del sorteo',
+        'numero9' : 'cuarto quinto del sorteo',
+        'numero10' : 'quinto quinto del sorteo',
+        'numero11' : 'sexto quinto del sorteo',
+        'numero12' : 'septimo quinto del sorteo',
+        'numero13' : 'octavo quinto del sorteo'
+    };
+
+    axios.get('test.php', config)
+        .then(function (response) {
+            // handle success
+            var data = eval(response.data);
+
+            // console.log(data);
+
+            Object.keys(data).map(function(objectKey, index) {
+                var value = data[objectKey];
+                var nombrePremio = premiosLocal[objectKey];
+
+                if (value.toString().length == 5) {
+                    var row = document.getElementById('number-' + value.toString());
+
+                    if (row != null) {
+                        row.cells.item(row.cells.length - 1).textContent += ' ,' + nombrePremio;
+                    }
+                }
+            });
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+        .then(function () {
+        });
+
+
+    return {
+        "timestamp": 1545462518,
+        "status": 0,
+        "numero1": 37668,
+        "numero2": -1,
+        "numero3": -1,
+        "numero4": -1,
+        "numero5": -1,
+        "numero6": -1,
+        "numero7": -1,
+        "numero8": -1,
+        "numero9": -1,
+        "numero10": -1,
+        "numero11": -1,
+        "numero12": -1,
+        "numero13": -1,
+        "fraseSorteoPDF": "El sorteo aún no ha comenzado",
+        "fraseListaPDF": "El sorteo aún no ha comenzado",
+        "listaPDF": "",
+        "urlAudio": "",
+        "error": 0
+    };
+
+}
